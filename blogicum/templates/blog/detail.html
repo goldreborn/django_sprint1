@@ -1,35 +1,28 @@
-<!DOCTYPE html> 
 {% extends "base.html" %}
-
-  <title>
-    {% block title %}
+<title>
+  {% block title %}
     {{ post.title }}
-    {% endblock %}
-  </title>
-
-  <body>
-    <main>
-      {% block content %}
-      <div class="container py-5">
-        <article>
-          <ul>
-            <li>
-              Место: {{ post.location }}             
-            </li>
-            <li>
-              Дата: {{ post.date }}
-            </li>
-            <li>
-              Категория: <a href="{% url 'blog:category_posts' post.category %}">{{ post.category }}</a>
-            </li>
-          </ul>      
-          <p>
-            {{ post.text|linebreaksbr }}
-          </p>     
-        </article>           
-      </div>
-      {% endblock %} 
-    </main>
- 
-  </body>
-</html>
+  {% endblock %}
+</title>
+<body>
+  <main>
+    {% block content %}
+      <article>
+        <ul>
+          <li>
+            Место: {{ post.location }}             
+          </li>
+          <li>
+            Дата: {{ post.date }}
+          </li>
+          <li>
+            Категория: <a href="{% url 'blog:category_posts' post.category %}">{{ post.category }}</a>
+          </li>
+        </ul>      
+        <p>
+          {{ post.text|linebreaksbr }}
+        </p>     
+      </article>           
+    {% endblock %} 
+  </main>
+</body>  

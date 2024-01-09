@@ -1,11 +1,11 @@
 from django.urls import path, include
 
-from . import views
+from django.views.generic.base import TemplateView as tv
 
 app_name = 'pages'
 
 urlpatterns = [
-    path('about/', views.about, name='about'),
-    path('rules/', views.rules, name='rules'),
+    path('about/', tv.as_view(template_name="pages/about.html"), name='about'),
+    path('rules/', tv.as_view(template_name="pages/rules.html"), name='rules'),
     path('blog/', include('blog.urls', namespace='blog')),
 ]
