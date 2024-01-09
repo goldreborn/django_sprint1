@@ -1,5 +1,4 @@
 from django.shortcuts import render
-from django.urls import path
 
 posts = [
     {
@@ -59,6 +58,7 @@ def post_detail(request, post_id):
     context = {'post': posts[post_id]}
 
     return render(request, template, context)
+
 
 def category_posts(request, category_slug):
 
