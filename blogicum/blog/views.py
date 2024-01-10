@@ -56,10 +56,12 @@ def index(request):
 def post_detail(request, post_id):
 
     template = 'blog/detail.html'
-    if post_id not in [x['id'] for x in posts]:
+    check_dict = {post['id']: post for post in posts}
+
+    if post_id not in check_dict.keys():
         raise Http404
-    else:
-        context = {'post': next(x for x in posts if x["id"] == post_id)}
+
+    context = {'post': check_dict[post_id]}
 
     return render(request, template, context)
 
@@ -67,6 +69,6 @@ def post_detail(request, post_id):
 def category_posts(request, category_slug):
 
     template = 'blog/category.html'
-    context = {'posts_info': posts, 'category': category_slug}
+    context = {'category': category_slug}
 
     return render(request, template, context)

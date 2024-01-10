@@ -1,14 +1,9 @@
 {% extends "base.html" %}
-<title>
-  {% block title %}
-    Категория {{ category }}
-  {% endblock %}
-</title>
-  <body>	   
-    <main>
-      {% block content %}
-        <h1>Публикации в категории - {{ category }}</h1>   
-      {% endblock %}
-    </main>
-  </body>
-</html>
+
+{% block title %}
+  Категория {{ category }}
+{% endblock %}
+
+{% block content %}
+  <h1>Публикации в категории - {{ category }}</h1>   
+{% endblock %}
