@@ -57,12 +57,12 @@ def post_detail(request, post_id):
 
     template = 'blog/detail.html'
 
-    samples = {post['id']: post for post in posts}
+    posts_by_id = {post['id']: post for post in posts}
 
-    if post_id not in samples:
+    if post_id not in posts_by_id:
         raise Http404
 
-    context = {'post': samples[post_id]}
+    context = {'post': posts_by_id[post_id]}
 
     return render(request, template, context)
 
