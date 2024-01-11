@@ -56,9 +56,10 @@ def index(request):
 def post_detail(request, post_id):
 
     template = 'blog/detail.html'
-    check_dict = {post['id']: post for post in posts}
 
-    if post_id not in check_dict.keys():
+    check_dict = {num: post for num, post in enumerate(posts)}
+
+    if post_id not in check_dict:
         raise Http404
 
     context = {'post': check_dict[post_id]}
