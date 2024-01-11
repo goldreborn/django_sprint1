@@ -57,12 +57,12 @@ def post_detail(request, post_id):
 
     template = 'blog/detail.html'
 
-    check_dict = {num: post for num, post in enumerate(posts)}
+    samples = {post['id']: post for post in posts}
 
-    if post_id not in check_dict:
+    if post_id not in samples:
         raise Http404
 
-    context = {'post': check_dict[post_id]}
+    context = {'post': samples[post_id]}
 
     return render(request, template, context)
 
